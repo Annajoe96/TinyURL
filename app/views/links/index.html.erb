@@ -1,0 +1,14 @@
+<h1> URL SHORTENER <h1>
+<h3> provide a long url <h3>
+<br />
+
+<%= form_with model: @link, remote: false do |f| %>
+  <%= f.label  :long_id, "Long URL" %>
+  <%= f.text_field :long_id, placeholder: "http://..." %>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<% @links.each do |i|%>
+  <% short = @prefix + i.short_id %>
+  <h4><%= "#{i.long_id}:" + short %></h4>
+<% end %>
